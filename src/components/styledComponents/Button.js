@@ -11,3 +11,5 @@ background: black;
 color: white;
 
 `
+
+export default Button
