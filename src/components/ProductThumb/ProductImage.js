@@ -1,5 +1,5 @@
 import React from "react";
-import ImageContainer from "./styledComponents/ImageContainer";
+import ImageContainer from "../styledComponents/ImageContainer";
 import styled from 'styled-components'
 
 const Image = styled(ImageContainer)`
@@ -22,7 +22,6 @@ const Image = styled(ImageContainer)`
     bottom: 0;
     left: .35rem;
     transition: all ease-in-out .3s;
-
 }
 
 &:hover{
@@ -34,8 +33,16 @@ const Image = styled(ImageContainer)`
         transform: scale(110%,110%);
     }
     & .price{
-       padding-bottom:1.5rem;
+       padding-bottom:.8rem;
     }
+}
+
+@media only screen and(max-width:425px){
+  & .price{
+    left: 50%;
+    transform:translate(-50%,0);
+
+  }
 }
 ` 
 

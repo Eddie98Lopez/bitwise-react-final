@@ -1,39 +1,27 @@
-import { useState, useEffect } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
-import axios from "axios";
-import ProductThumb from "./components/ProductThumb/ProductThumb";
-import styled from "styled-components";
+import {RetailHome, CheckoutPage, ProductPage, CartPage} from './pages'
 
-const Grid = styled.div`
-  display: grid;
-  width: 75%;
-  margin: auto;
-  margin: 3rem auto;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-`;
+
+import { Routes,Route } from "react-router-dom";
+
+
 
 function App() {
-  const [products, setProducts] = useState([]);
+  
 
-  useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((res) => {
-        setProducts(res.data)
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
   return (
     <div className="App">
       <Navigation />
 
-      <Grid>
-        {products.length > 0 &&
-          products.map((item) => <ProductThumb key={item.id} product={item} />)}
-      </Grid>
+      <Routes>
+        <Route path='/' element={<RetailHome/>}/>
+        <Route path='/product/:id' element={<ProductPage/>}/>
+        <Route path='/cart' element={<CartPage/>}/>
+        <Route path='/checkout' element={<CheckoutPage/>}/>
+        
+      </Routes>
+
     </div>
   );
 }

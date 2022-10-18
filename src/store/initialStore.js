@@ -1,7 +1,9 @@
 const initialStore = {
-    loading: false,
+    loading: true,
     user:null,
-    cart:[]
+    products:[],
+    cart:[],
+    favorites: []
 }
 
 export default initialStore

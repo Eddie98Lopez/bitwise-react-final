@@ -1,5 +1,4 @@
-const addToCart = (id, products, dispatch) => {
-  const product = products.filter((item) => item.id === id)[0];
+const addToCart = (product, dispatch) => {
   dispatch({ type: "ADD_CART", payload: product });
 };
 
