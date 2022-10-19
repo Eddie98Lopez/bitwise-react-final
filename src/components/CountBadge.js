@@ -42,7 +42,7 @@ const CountBadge = ({children,length,path,...props}) => {
 
   return (
     
-    <BadgeWrap {...props} length={length} onClick={()=>navigate('/favorites')}>
+    <BadgeWrap {...props} length={length} onClick={()=>navigate(path)}>
         <div className='badge'>{length}</div>
         {children}
     </BadgeWrap>

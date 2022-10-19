@@ -1,6 +1,7 @@
 import React from 'react'
+import { useStore } from '../store/StoreProvider'
 
-const CartPage = () => {
+const CartPage = (props) => {
   return (
     <div>CartPage</div>
   )

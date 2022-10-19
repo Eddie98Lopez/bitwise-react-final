@@ -10,6 +10,9 @@ const reducer = (state,action) => {
             return {...state, loading:false}
         case "ADD_FAVORITE":
             return {...state, products:[...state.products.filter(item => item.id != payload.id), payload]}
+
+        case "ADD_CART":
+            return {...state,cart:[...state.cart, payload]}
     
         default:
             return state;

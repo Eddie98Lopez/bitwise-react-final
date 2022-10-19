@@ -3,7 +3,6 @@ import styled from 'styled-components'
 const ImageContainer = styled.div`
 
 background:white;
-border: 1px solid rgba(0,0,0,.3);
 position:relative;
 overflow:hidden;
 transition:all .3 ease-in-out;

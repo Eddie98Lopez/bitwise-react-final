@@ -18,12 +18,13 @@ const CountIcons = (props) => {
       <CountBadge
         background="teal"
         color="white"
+        path='/favorites'
         length={products.filter((item) => item.favorite === true).length}
       >
         <HeartIcon />
       </CountBadge>
 
-      <CountBadge background="crimson" color="white" length={cart.length}>
+      <CountBadge background="gold" color="black" length={cart.length} path='/cart'> 
         <CartIcon />
       </CountBadge>
     </CounterWrap>

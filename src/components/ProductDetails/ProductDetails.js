@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import AddCartButton from "../../AddCartButton";
 import Rating from "./Rating";
+import usdCurrency from "../../utils/usdCurrency";
 
 const Details = styled.div`
   box-sizing: border-box;
@@ -52,12 +54,11 @@ const ProductDetails = (props) => {
     </div>
     
     <h3>{title}</h3>
-    <p className='price'>{(price).toLocaleString('en-US', {
-  style: 'currency',
-  currency: 'USD',
-})}</p>
+    <p className='price'>{usdCurrency(price)}</p>
 
     <p className="description">{description}</p>
+
+    <AddCartButton id={id}/>
     </Details>;
 };
 
