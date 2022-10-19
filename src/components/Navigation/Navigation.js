@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import CallToAction from "./CallToAction";
 import styled from "styled-components";
 import Categories from "./Categories";
+import CountIcons from "./CountIcons";
 
 function scrollFunction() {
     const nav = document.getElementsByClassName("nav")[0];
@@ -40,7 +41,7 @@ const Nav = styled.nav`
   & .nav2{
     transition:all .3s ease-in-out;
     height:1rem;
-    padding: .5rem 5%;
+    padding: .75rem 5% .5rem 5%;
   }
 `;
 
@@ -50,6 +51,7 @@ const Nav = styled.nav`
 // search
 
 const Navigation = (props) => {
+   
     useEffect(() => {
         window.onscroll = function () {
           scrollFunction();
@@ -61,7 +63,8 @@ const Navigation = (props) => {
       <div className='nav'>
         <div>logo</div>
         <Categories/>
-        <div>search stuff</div>
+        <CountIcons/>
+
       </div>
     </Nav>
   );
