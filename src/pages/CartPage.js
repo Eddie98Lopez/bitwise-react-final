@@ -11,6 +11,10 @@ padding:2rem;
 display:grid;
 grid-template-columns: 2fr 1fr;
 gap:2rem;
+
+@media only screen and (max-width:768px){
+  grid-template-columns: 100%;
+}
 `
 
 const CartPage = (props) => {
@@ -20,7 +24,6 @@ const CartPage = (props) => {
 
   return (
     <CartWrap>
-
       <CartList/>
       <Total/>
     </CartWrap>
