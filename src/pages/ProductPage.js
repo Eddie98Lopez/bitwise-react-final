@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import ImageContainer from '../components/styledComponents/ImageContainer'
-import ProductList from '../components/ProductList'
-import Rating from '../components/ProductDetails/Rating'
 import ProductDetails from '../components/ProductDetails/ProductDetails'
+import { useStore } from '../store/StoreProvider'
 
 
 const Grid = styled.section`
@@ -17,16 +16,21 @@ gap:1rem;
 
 const ProductPage = (props) => {
   const {id} = useParams()
+  const {loading} = useStore().store
+  const {dispatch} = useStore()
   console.log(id)
   const [product,setProduct] = useState(null)
 
   useEffect(()=>{
     axios.get(`https://fakestoreapi.com/products/${id}`)
-      .then(res=>setProduct(res.data))
+      .then(res=>{
+        setProduct(res.data)
+        dispatch({type:"END_LOAD"})
+      })
       .catch(err=>console.log(err))
   },[])
   return (
-   product != null && <Grid>
+   !loading && <Grid>
       <ImageContainer>
         <img src={product.image} alt={product.title}/>
       </ImageContainer>

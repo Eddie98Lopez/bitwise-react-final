@@ -57,7 +57,7 @@ const ProductThumb = (props) => {
 
   const push = (e)=>{
     e.preventDefault()
-    e.stopPropagation()
+    dispatch({type:"LOAD"})
     navigate(`/product/${id}`)
   }
   return (

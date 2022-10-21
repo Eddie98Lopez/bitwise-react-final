@@ -14,7 +14,7 @@ color:black
     font-weight:600;
 }
 & svg{
-    height: 1.5rem;
+    height: 1.1rem;
     width:auto;
     
 

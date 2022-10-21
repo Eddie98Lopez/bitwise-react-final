@@ -13,6 +13,9 @@ const Image = styled(ImageContainer)`
 
 & .price{
     text-align:center;
+    font-size:.7rem;
+    
+    letter-spacing:2px;
     position:absolute;
     min-width: 4rem;
     padding:.15rem;
