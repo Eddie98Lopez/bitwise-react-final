@@ -1,58 +1,66 @@
-import React from 'react'
-import { useStore } from '../../store/StoreProvider'
-import CartItem from './CartItem'
-import styled from 'styled-components'
-import { calcTotal } from './Total'
+import React from "react";
+import { useStore } from "../../store/StoreProvider";
+import CartItem from "./CartItem";
+import styled from "styled-components";
+import { calcTotal } from "./Total";
+import EmptyCart from "./EmptyCart";
+
 
 const Wrapper = styled.div`
-width: 100%;
-box-sizing:border-box;
-background:white;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
 
-text-align:left;
+  text-align: left;
 
-& .title{
-  padding:2rem 0 0 2rem;
-  font-weight: 600;
-text-transform: uppercase;
-letter-spacing:2px;
-}
-& .subtotal{
-  text-align:right;
-  padding:2rem;
-  font-weight: 600;
-text-transform: uppercase;
-letter-spacing:2px;
-
-
-}`
+  & .title {
+    padding: 2rem 0 0 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  & .subtotal {
+    text-align: right;
+    padding: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+`;
 
 const ListWrap = styled.div`
-padding: 0 1rem;
-box-sizing:border-box;
-width:100%;
-height:min-height;
-background: white;`
+  padding: 0 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  height: min-height;
+  background: white;
+`;
 
 const CartList = () => {
-  const {cart} = useStore().store
-  const items = [...new Set(cart)]
-  const counts = {}
-  const countstuff = cart.forEach( x=>  counts[x.id] = (counts[x.id] || 0) + 1)
-
+  const { cart } = useStore().store;
+  const items = [...new Set(cart)];
+  const prod = cart.filter((item) => item.id == 2)[0];
+  //console.log(cart)
+  //console.log(cart.indexOf(prod))
+  const counts = {};
+  const countstuff = cart.forEach(
+    (x) => (counts[x.id] = (counts[x.id] || 0) + 1)
+  );
+  console.log(counts);
 
   return (
-<Wrapper>
-  <h3 className='title'>My Bag
-  </h3>
-<ListWrap>
+    cart.length === 0 ? <EmptyCart/> :
+    <Wrapper>
+      <h3 className="title">My Bag</h3>
       
-      {items.map(product => <CartItem product={product} quantity={counts[product.id]}/>)}
-   
-    </ListWrap>
-    <p className='subtotal'>Subtotal: {calcTotal(cart)}</p>
-</Wrapper>
-  )
-}
+      <ListWrap>
+        {items.map((product) => (
+          <CartItem product={product} quantity={counts[product.id]} />
+        ))}
+      </ListWrap>
+      <p className="subtotal">Subtotal: {calcTotal(cart)}</p>
+    </Wrapper>
+  );
+};
 
-export default CartList
+export default CartList;

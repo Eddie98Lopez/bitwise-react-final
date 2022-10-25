@@ -18,7 +18,7 @@ const ProductPage = (props) => {
   const {id} = useParams()
   const {loading} = useStore().store
   const {dispatch} = useStore()
-  console.log(id)
+  //console.log(id)
   const [product,setProduct] = useState(null)
 
   useEffect(()=>{

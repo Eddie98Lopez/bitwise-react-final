@@ -1,8 +1,14 @@
 import React from 'react'
-
+import FormProvider from '../components/Checkout/context/FormProvider'
+import CheckoutForm from '../components/Checkout/CheckoutForm'
 const CheckoutPage = () => {
   return (
-    <div>CheckoutPage</div>
+
+    <FormProvider>
+    <div>
+      <CheckoutForm/>
+    </div>
+    </FormProvider>
   )
 }
 

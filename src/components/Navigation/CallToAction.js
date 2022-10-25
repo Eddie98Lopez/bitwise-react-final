@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.p`
+const Wrapper = styled.div`
   width: 100%;
   background: black;
   padding: 0.5rem 0;
@@ -60,7 +60,7 @@ const CallToAction = (props) => {
     <Wrapper>
       {taglines.map(
         (item) =>
-          counter === taglines.indexOf(item) && <p>{taglines[counter]}</p>
+          counter === taglines.indexOf(item) && <p key={taglines.indexOf(item)}>{taglines[counter]}</p>
       )}
     </Wrapper>
   );

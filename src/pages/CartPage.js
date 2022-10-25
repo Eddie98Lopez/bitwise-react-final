@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import styled from 'styled-components'
 import CartList from '../components/Cart/CartList'
 import Total from '../components/Cart/Total'
+import { useStore } from '../store/StoreProvider'
+import EmptyCart from '../components/Cart/EmptyCart'
+import CheckoutForm from '../components/Checkout/CheckoutForm'
+import FormProvider from '../components/Checkout/context/FormProvider'
+import {Routes, Route,Outlet} from 'react-router-dom'
 
 const CartWrap = styled.section`
 width: 100%;
@@ -19,15 +24,24 @@ gap:2rem;
 `
 
 const CartPage = (props) => {
+  const {length} = useStore().store.cart
+ 
 
  
 
 
   return (
+    <FormProvider>
     <CartWrap>
-      <CartList/>
+<div>
+
+        <Outlet/>
+</div>
+      
+
       <Total/>
     </CartWrap>
+    </FormProvider>
   )
 }
 

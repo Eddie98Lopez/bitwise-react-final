@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {useStore} from '../../store/StoreProvider'
 import usdCurrency from '../../utils/usdCurrency'
 import Button from '../styledComponents/Button'
+import {useLocation, useNavigate} from 'react-router-dom'
 
 const Checkout = styled(Button)`
 text-transform:uppercase;
@@ -59,14 +60,16 @@ padding:1rem;
 `
 
 const Total = (props) => {
+  const navigate = useNavigate()
+  const location = useLocation().pathname
   const {cart} = useStore().store
   const total = calcTotal(cart)
-  console.log(total)
+ 
   return (
     <TotalWrapper>
     <h3>Total</h3>
     <p><span>SubTotal</span> <span>{total}</span></p>
-    <Checkout>CHECKOUT</Checkout>
+    <Checkout onClick={()=>!location.includes('checkout') && navigate('/cart/checkout')}>GO TO CHECKOUT</Checkout>
     </TotalWrapper>
   )
 }

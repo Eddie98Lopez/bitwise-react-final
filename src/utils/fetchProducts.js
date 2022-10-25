@@ -6,7 +6,7 @@ const fetchProducts = async (dispatch) => {
     const res = await axios.get("https://fakestoreapi.com/products");
     //console.log(res)
     const products = res.data.map(item=>{return {...item, favorite:false}})
-    console.log(products)
+    //console.log(products)
     dispatch({type:"FETCH_PRODUCTS", payload: products})
 
   } catch (error) {
