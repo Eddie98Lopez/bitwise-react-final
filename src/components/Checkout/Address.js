@@ -5,26 +5,38 @@ import styled from 'styled-components'
 
 const AddressWrapper = styled.div`
 display:grid;
-grid-template-columns: repeat(6,1fr);
 gap:1rem;
+grid-template-areas: 
+'first first first last last last'
+'address address address address address address'
+'city city state state zip zip';
 
 & :nth-child(1){
-    grid-column:1/4;
+grid-area:first;
 }
 & :nth-child(2){
-  grid-column:4/end;
+  grid-area:last;
 }
 & :nth-child(3){
-  grid-column:1/end;
+  grid-area:address;
 }
 & :nth-child(4){
-  grid-column:1/4;
+  grid-area:city;
 }
 & :nth-child(5){
-  grid-column:4/6;
+  grid-area:state;
 }
 & :nth-child(6){
-  grid-column:6/end;
+  grid-area:zip;
+}
+
+@media only screen and (max-width:768px){
+  grid-template-areas:
+  "first first first"
+  "last last last"
+  "address address address"
+  "city city city"
+  "state state zip";
 }
 
 `
@@ -42,7 +54,7 @@ const Address = ({type,...props}) => {
   return (
     
 <AddressWrapper>
-<div>
+<div className='name'>
       <Label>First</Label>
       <Input
         type="text"
@@ -53,7 +65,7 @@ const Address = ({type,...props}) => {
       />
    
     </div>
-    <div>
+    <div className='name'>
       <Label>Last</Label>
       <Input
         type="text"

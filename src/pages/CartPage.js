@@ -15,6 +15,7 @@ const CartWrap = styled.section`
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: 100%;
+    padding: 1rem;
   }
 `;
 

@@ -17,7 +17,8 @@ const initialCheckout = {
         zip:''
     },
     card:'',
-    security:''
+    security:'',
+    exp:''
 }
 
 export default initialCheckout

@@ -12,7 +12,6 @@ const Wrapper = styled.div`
   width: 100%;
   box-sizing: border-box;
   background: white;
-
   text-align: left;
 
   & .title {
@@ -54,7 +53,7 @@ const CartList = () => {
       
       <ListWrap>
         {items.map((product) => (
-          <CartItem product={product} quantity={counts[product.id]} />
+          <CartItem product={product} key ={product.id} quantity={counts[product.id]} />
         ))}
       </ListWrap>
       <p className="subtotal">Subtotal: {usdCurrency(calcTotal(cart))}</p>

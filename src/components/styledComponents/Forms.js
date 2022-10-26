@@ -81,9 +81,22 @@ background: white;
 & .triple {
     box-sizing:border-box;
     display:grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
     gap:1rem;
+    margin-bottom:1rem;
 
+    @media only screen and (max-width:768px){
+        grid-template-columns: 1fr 1fr;
+        & :nth-child(1){
+            grid-column:1/3;
+        }
+    
+    }
+
+}
+
+@media only screen and (max-width:768px){
+    padding:2rem 1rem;
 }
 `
 
