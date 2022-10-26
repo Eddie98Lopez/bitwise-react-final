@@ -5,9 +5,7 @@ import CheckoutForm from '../components/Checkout/CheckoutForm'
 const CheckoutPage = () => {
   return (
     <FormProvider>
-    <div>
       <CheckoutForm/>
-    </div>
     </FormProvider>
   )
 }

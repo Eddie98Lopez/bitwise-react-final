@@ -20,7 +20,9 @@ function App() {
         <Route path='cart' element={<CartPage/>}>
         <Route path='' element={<CartList/>}/> 
         <Route path='checkout' element={<CheckoutForm/>}/>
-          </Route>        
+          </Route>
+       {/*  <Route path='/checkout' element={<CheckoutPage/>}/> */}
+        
       </Routes>
 
     </div>

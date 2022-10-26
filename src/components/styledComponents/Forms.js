@@ -11,17 +11,17 @@ background:rgba(0,0,0,.02);
 
 &::placeholder{
     opacity:.2
-
 }
 
 &:focus{
     border-bottom: solid 2px rgba(0,0,0,1);
-    background:rgba(0,0,0,.04);
-    
+    background:rgba(0,0,0,.05); 
 }
 
-
-
+@media only screen and (max-width:768px){
+    font-size:1.25rem;
+    
+}
 `
 
 const Label = styled.label`
@@ -90,9 +90,7 @@ background: white;
         & :nth-child(1){
             grid-column:1/3;
         }
-    
     }
-
 }
 
 @media only screen and (max-width:768px){

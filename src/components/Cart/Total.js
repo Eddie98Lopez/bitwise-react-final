@@ -18,7 +18,6 @@ export const calcTotal = (array) => {
   let total = 0
   for (let i=0;i<array.length; i++) {
     total = total + array[i].price
-
   }
   return total
 }
@@ -34,7 +33,6 @@ top:5rem;
 padding:1rem;
 
 & h3{
-
   font-size: 1.25rem;
   text-align:left;
   font-weight:600;

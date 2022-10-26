@@ -4,6 +4,7 @@ import CountBadge from "../CountBadge";
 import { useStore } from "../../store/StoreProvider";
 import HeartIcon from "../../assets/heartIcon";
 import CartIcon from "../../assets/cartIcon";
+import Hamburger from "./Hamburger";
 
 const CounterWrap = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const CounterWrap = styled.div`
 const CountIcons = (props) => {
   const { cart, products } = useStore().store;
   return (
-    <CounterWrap>
+    <CounterWrap className='counts'>
       <CountBadge
         background="teal"
         color="white"
@@ -27,6 +28,8 @@ const CountIcons = (props) => {
       <CountBadge background="gold" color="black" length={cart.length} path='/cart'> 
         <CartIcon />
       </CountBadge>
+
+      <Hamburger/>
     </CounterWrap>
   );
 };

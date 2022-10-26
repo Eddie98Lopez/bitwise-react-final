@@ -3,6 +3,9 @@ import CallToAction from "./CallToAction";
 import styled from "styled-components";
 import Categories from "./Categories";
 import CountIcons from "./CountIcons";
+import MobileProvider from "./MobileProvider";
+
+
 
 function scrollFunction() {
     const nav = document.getElementsByClassName("nav")[0];
@@ -43,12 +46,38 @@ const Nav = styled.nav`
     height:1rem;
     padding: .75rem 5% .5rem 5%;
   }
+
+  @media only screen and (max-width:768px){
+    & .nav2{height:auto;
+    padding: .85rem 2.5%;}
+    & .nav{
+      padding: .85rem 2.5%;
+      height:auto;
+      display: grid;
+      grid-template-areas: 
+      "logo icons"
+      "l l";
+
+      & .logo{
+        grid-area:logo;
+      }
+      & .links{
+        grid-area:l;
+        display:flex;
+        flex-direction:column;
+        overflow:hidden;
+      }
+      & .counts{
+        grid-area:icons;
+      }
+    }
+  }
 `;
 
 //call to action
 //logo
 //categories
-// search
+//search
 
 const Navigation = (props) => {
    
@@ -58,15 +87,17 @@ const Navigation = (props) => {
         };
       }, []);
   return (
+    <MobileProvider>
     <Nav>
       <CallToAction />
       <div className='nav'>
-        <div>logo</div>
+        <div className='logo'>logo</div>
         <Categories/>
         <CountIcons/>
 
       </div>
     </Nav>
+    </MobileProvider>
   );
 };
 
