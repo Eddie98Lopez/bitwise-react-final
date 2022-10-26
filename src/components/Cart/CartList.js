@@ -4,6 +4,8 @@ import CartItem from "./CartItem";
 import styled from "styled-components";
 import { calcTotal } from "./Total";
 import EmptyCart from "./EmptyCart";
+import usdCurrency from "../../utils/usdCurrency";
+import cartSet from "../../utils/cartSet";
 
 
 const Wrapper = styled.div`
@@ -38,15 +40,12 @@ const ListWrap = styled.div`
 
 const CartList = () => {
   const { cart } = useStore().store;
-  const items = [...new Set(cart)];
-  const prod = cart.filter((item) => item.id == 2)[0];
-  //console.log(cart)
-  //console.log(cart.indexOf(prod))
+  const items =cartSet(cart);
   const counts = {};
   const countstuff = cart.forEach(
     (x) => (counts[x.id] = (counts[x.id] || 0) + 1)
   );
-  console.log(counts);
+  //console.log(counts);
 
   return (
     cart.length === 0 ? <EmptyCart/> :
@@ -58,7 +57,7 @@ const CartList = () => {
           <CartItem product={product} quantity={counts[product.id]} />
         ))}
       </ListWrap>
-      <p className="subtotal">Subtotal: {calcTotal(cart)}</p>
+      <p className="subtotal">Subtotal: {usdCurrency(calcTotal(cart))}</p>
     </Wrapper>
   );
 };

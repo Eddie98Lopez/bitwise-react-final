@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useCheckoutForm } from "./context/FormProvider";
 import { Label, Input, Form } from "../styledComponents/Forms";
 import Button from "../styledComponents/Button";
@@ -7,6 +7,7 @@ import Address from "./Address";
 const CheckoutForm = () => {
   const { security, card } = useCheckoutForm().form;
   const { form, dispatch } = useCheckoutForm();
+  const [check,setCheck] = useState(false)
 
   const change = (e) => {
     const { name, value } = e.target;
@@ -16,6 +17,12 @@ const CheckoutForm = () => {
     e.preventDefault();
     console.log(form);
   };
+  const checkbox = (e) => {
+    console.log(check)
+    console.log(e.target.value)
+    setCheck(!check)
+  }
+
 
   return (
     <Form onSubmit={submit}>
@@ -26,6 +33,10 @@ const CheckoutForm = () => {
 
       <fieldset>
         <legend>Billing Information</legend>
+        <div className='checkbox'>
+            <input type='checkbox' onChange={checkbox} />
+            <label>Check this box if billing and shipping information are the same</label>
+        </div>
         
      
 
@@ -52,7 +63,7 @@ const CheckoutForm = () => {
         </div>
       </div>
 
-      <Address type='billing'/>
+      {!check && <Address type='billing'/>}
       </fieldset>
 
       <Button>submit</Button>

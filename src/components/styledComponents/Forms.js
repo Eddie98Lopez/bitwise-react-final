@@ -9,20 +9,31 @@ outline:none;
 border: solid 2px rgba(0,0,0,0);
 background:rgba(0,0,0,.02);
 
+&::placeholder{
+    opacity:.2
+
+}
+
 &:focus{
     border-bottom: solid 2px rgba(0,0,0,1);
+    background:rgba(0,0,0,.04);
+    
 }
+
+
+
 `
 
 const Label = styled.label`
 display:block;
 text-align: left;
-color: lightgrey;
+color: grey;
 font-size: .7rem;
 text-transform: uppercase;
 font-weight: 600;
 letter-spacing:2px;
 margin-bottom: .25rem;
+
 `
 const Form = styled.form`
 box-sizing:border-box;
@@ -43,6 +54,15 @@ background: white;
         font-weight:600;
     }
 
+}
+
+& .checkbox{
+    display:flex;
+    align-items:center;
+    color:grey;
+    text-align:left;
+    font-size: .8rem;
+    margin-bottom: 1rem;
 }
 
 & .errors{

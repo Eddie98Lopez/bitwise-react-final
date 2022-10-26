@@ -9,13 +9,10 @@ const Checkout = styled(Button)`
 text-transform:uppercase;
 letter-spacing:2px;
 font-weight: 600;
-position:absolute;
-bottom: 1rem;
 width: 90%;
-left:50%;
-transform: translate(-50%,0);
+box-sizing:border-box;
+margin:2rem auto;
 `
-
 
 export const calcTotal = (array) => {
   let total = 0
@@ -23,7 +20,7 @@ export const calcTotal = (array) => {
     total = total + array[i].price
 
   }
-  return usdCurrency(total)
+  return total
 }
 
 
@@ -52,10 +49,17 @@ padding:1rem;
   display: flex;
   justify-content:space-between;
   font-weight: 600;
+  margin-bottom:.75rem;
+  color:lightgrey;
 
   & :nth-child(1){
     color:lightgrey;
   }
+}
+
+& .total{
+color:black;
+font-size:1.25rem;
 }
 `
 
@@ -64,11 +68,17 @@ const Total = (props) => {
   const location = useLocation().pathname
   const {cart} = useStore().store
   const total = calcTotal(cart)
+  const tax = .079 * total
+  const shipping = cart.length===0 ? 0 :5.99
  
   return (
     <TotalWrapper>
     <h3>Total</h3>
-    <p><span>SubTotal</span> <span>{total}</span></p>
+    <p><span>SubTotal</span> <span>{usdCurrency(total)}</span></p>
+    <p><span>Tax</span> <span>{usdCurrency(tax)}</span></p>
+    <p><span>Shipping</span> <span>{usdCurrency(shipping)}</span></p>
+    <br/>
+    <p><span>Total</span> <span className='total'>{usdCurrency(total + tax + shipping)}</span></p>
     <Checkout onClick={()=>!location.includes('checkout') && navigate('/cart/checkout')}>GO TO CHECKOUT</Checkout>
     </TotalWrapper>
   )

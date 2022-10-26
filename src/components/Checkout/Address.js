@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const AddressWrapper = styled.div`
 display:grid;
 grid-template-columns: repeat(6,1fr);
-gap:.75rem;
+gap:1rem;
 
 & :nth-child(1){
     grid-column:1/4;
@@ -51,7 +51,7 @@ const Address = ({type,...props}) => {
         placeholder="John"
         value={first}
       />
-      <div className="errors">error</div>
+   
     </div>
     <div>
       <Label>Last</Label>
@@ -62,7 +62,7 @@ const Address = ({type,...props}) => {
         placeholder="Doe"
         value={last}
       />
-      <div className="errors">error</div>
+    
     </div>
 <div>
     <Label>{type} Address</Label>
