@@ -13,6 +13,7 @@ font-weight: 600;
 width: 90%;
 box-sizing:border-box;
 margin:2rem auto;
+font-size:1.1rem;
 `
 
 export const calcTotal = (array) => {

@@ -25,13 +25,13 @@ const Wrapper = styled.div`
     box-sizing: border-box;
     text-overflow: ellipsis;
     background: none;
-    font-size: .7rem;
+    font-size: .8rem;
     margin-bottom: 0.25rem;
     padding: 0 .25rem;
   }
 
   & p {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: grey;
     text-align: left;
     margin-top: 0.5rem;

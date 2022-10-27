@@ -16,7 +16,7 @@ const Cats = styled.div`
     color: black;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     border-bottom: 2px solid rgba(0, 0, 0, 0);
     letter-spacing: 2px;
 

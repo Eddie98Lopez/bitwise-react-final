@@ -10,7 +10,7 @@ background: black;
 color: white;
 text-transform:uppercase;
 letter-spacing:2px;
-font-size:.75rem;
+font-size:.85rem;
 font-weight:600;
 
 `
