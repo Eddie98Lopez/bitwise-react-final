@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import ProductImage from '../ProductThumb/ProductImage'
 import usdCurrency from '../../utils/usdCurrency'
 import ImageContainer from '../styledComponents/ImageContainer'
+import { useStore } from '../../store/StoreProvider'
+import remFromCart from '../../utils/remFromCart'
+import CloseButton from '../../assets/closeButton'
 
 
 const ItemWrapper = styled.li`
@@ -15,6 +17,14 @@ gap:1rem;
 border-bottom: 1px solid grey;
 grid-template-columns: 1fr 4fr;
 text-align:left;
+position:relative;
+
+& .close{
+  position:absolute;
+  top:1rem; 
+  right:1rem;
+
+}
 
 & h2{
   margin-bottom: 1rem;
@@ -30,7 +40,11 @@ text-align:left;
 }`
 
 const CartItem = ({product, quantity, ...props}) => {
+    const {dispatch} = useStore()
     const {id, title, description, price, image} = product
+    const close = (e) => {
+      remFromCart(dispatch,id)
+    }
   return (
     <ItemWrapper>
         <ImageContainer>
@@ -39,8 +53,13 @@ const CartItem = ({product, quantity, ...props}) => {
         <div>
             <h2>{usdCurrency(price)}</h2>
             <p>{title}</p>
-            <div>Qty. {quantity}</div>
+            <div>Qty. {quantity} </div>
         </div>
+        <CloseButton className='close' 
+        width='15px'
+        height='15px'
+        color='lightgrey'
+        onClick={close}/>
 
 
     </ItemWrapper>

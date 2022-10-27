@@ -26,7 +26,7 @@ padding:1rem;
   bottom: 0;
   z-index: -1;
   background: green;
-  transition: ${props=>props.click ?'none' :'transform 1.5s ease-out;'};
+ ${props=>props.click ?'' :'transition:transform 1.5s ease-out'};
   transform: ${props=>props.clicked ? 'scaleX(1)' :"scaleX(0)"};
   transform-origin: 0 50%;
  

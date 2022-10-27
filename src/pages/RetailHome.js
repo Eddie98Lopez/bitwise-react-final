@@ -5,7 +5,7 @@ import { useStore } from '../store/StoreProvider';
 
 const RetailHome = (props) => {
     const {loading,products} = useStore().store
-    console.log(products)
+   // console.log(products)
     const sorted = products.sort((a,b)=>a.id-b.id)
   return (
     <div>

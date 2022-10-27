@@ -13,6 +13,8 @@ const reducer = (state,action) => {
 
         case "ADD_CART":
             return {...state,cart:[...state.cart, payload]}
+        case "REMOVE_FROM_CART": 
+            return {...state, cart:state.cart.filter(item=>item.id !== payload)}
     
         default:
             return state;
