@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Categories from "./Categories";
 import CountIcons from "./CountIcons";
 import MobileProvider from "./MobileProvider";
-
+import { useNavigate, Link} from "react-router-dom";
 
 
 function scrollFunction() {
@@ -80,6 +80,7 @@ const Nav = styled.nav`
 //search
 
 const Navigation = (props) => {
+  const navigate = useNavigate()
    
     useEffect(() => {
         window.onscroll = function () {
@@ -91,7 +92,7 @@ const Navigation = (props) => {
     <Nav>
       <CallToAction />
       <div className='nav'>
-        <div className='logo'>logo</div>
+        <div className='logo'><Link to='/'>logo</Link></div>
         <Categories/>
         <CountIcons/>
 
