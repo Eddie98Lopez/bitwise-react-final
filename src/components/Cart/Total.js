@@ -4,6 +4,7 @@ import {useStore} from '../../store/StoreProvider'
 import usdCurrency from '../../utils/usdCurrency'
 import Button from '../styledComponents/Button'
 import {useLocation, useNavigate} from 'react-router-dom'
+import PayNowButton from '../PayNowButton'
 
 const Checkout = styled(Button)`
 text-transform:uppercase;
@@ -77,7 +78,8 @@ const Total = (props) => {
     <p><span>Shipping</span> <span>{usdCurrency(shipping)}</span></p>
     <br/>
     <p><span>Total</span> <span className='total'>{usdCurrency(total + tax + shipping)}</span></p>
-    <Checkout onClick={()=>!location.includes('checkout') && navigate('/cart/checkout')}>GO TO CHECKOUT</Checkout>
+   {!location.includes('checkout') && <Checkout onClick={()=> navigate('/cart/checkout')}>GO TO CHECKOUT</Checkout>}
+   {location.includes('checkout') && <PayNowButton/>}
     </TotalWrapper>
   )
 }

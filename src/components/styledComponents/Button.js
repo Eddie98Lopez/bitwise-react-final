@@ -4,11 +4,14 @@ const Button = styled.button`
 
 display: inline-block;
 padding: .5rem;
-font-size: 1.1rem;
 outline: none; 
 border: none;
 background: black;
 color: white;
+text-transform:uppercase;
+letter-spacing:2px;
+font-size:.75rem;
+font-weight:600;
 
 `
 

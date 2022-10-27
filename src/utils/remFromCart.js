@@ -7,4 +7,9 @@ const remFromCart = (dispatch,id) => {
 
 }
 
+export const emptyCart = (dispatch) => {
+    dispatch({type:"EMPTY_CART"})
+
+}
+
 export default remFromCart

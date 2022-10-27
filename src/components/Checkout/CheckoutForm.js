@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useCheckoutForm } from "./context/FormProvider";
 import { Label, Input, Form } from "../styledComponents/Forms";
-import Button from "../styledComponents/Button";
 import Address from "./Address";
 
 const CheckoutForm = () => {
@@ -69,7 +68,6 @@ const CheckoutForm = () => {
         </div>
         {!check && <Address type="billing" />}
       </fieldset>
-      <Button>submit</Button>
     </Form>
   );
 };
