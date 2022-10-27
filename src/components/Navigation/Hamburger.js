@@ -27,7 +27,7 @@ const Burger = styled.div`
     display:block;
   }
   ${(props) =>
-    props.mobile &&
+    props.mobile === 'true' &&
     `
 & #Rectangle_9{
   
@@ -71,7 +71,7 @@ const Hamburger = (props) => {
  
   return (
     <Burger
-      mobile={mobile}
+      mobile={mobile.toString()}
       id="hamburger"
       onClick={() => {
         setMobile(!mobile);

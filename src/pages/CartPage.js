@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Total from "../components/Cart/Total";
-import { useStore } from "../store/StoreProvider";
 import FormProvider from "../components/Checkout/context/FormProvider";
 import { Outlet } from "react-router-dom";
 
@@ -20,7 +19,7 @@ const CartWrap = styled.section`
 `;
 
 const CartPage = (props) => {
-  const { length } = useStore().store.cart;
+
 
   return (
     <FormProvider>

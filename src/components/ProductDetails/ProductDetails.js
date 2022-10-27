@@ -43,6 +43,10 @@ const Details = styled.div`
     color: grey;
     letter-spacing:.4px;
   }
+  @media only screen and (max-width:768px){
+    padding:5%;
+    margin-bottom:2rem;
+  }
 `;
 
 const ProductDetails = (props) => {

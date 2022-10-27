@@ -12,6 +12,10 @@ width: 100%;
 display:grid;
 grid-template-columns: 3fr 2fr;
 gap:1rem;
+
+@media only screen and (max-width:768px){
+  grid-template-columns:100%;
+}
 `
 
 const ProductPage = (props) => {
