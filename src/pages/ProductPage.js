@@ -20,16 +20,16 @@ gap:1rem;
 
 const ProductPage = (props) => {
   const {id} = useParams()
-  const {loading} = useStore().store
   const {dispatch} = useStore()
   //console.log(id)
+  const [loading,setLoading] = useState(true)
   const [product,setProduct] = useState(null)
 
   useEffect(()=>{
     axios.get(`https://fakestoreapi.com/products/${id}`)
       .then(res=>{
         setProduct(res.data)
-        dispatch({type:"END_LOAD"})
+        setLoading(false)
       })
       .catch(err=>console.log(err))
   },[])

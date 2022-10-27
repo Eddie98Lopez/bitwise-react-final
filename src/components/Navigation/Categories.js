@@ -22,6 +22,7 @@ const Cats = styled.div`
 
     @media only screen and (max-width:768px){
       padding:1rem;
+      font-size:1.05rem;
 
     }
     &:hover {
@@ -31,6 +32,7 @@ const Cats = styled.div`
 
 @media only screen and (max-width:768px){
   height: ${(props) => (props.display === "true" ? "25vh" : "0")};
+
 }
 `;
 

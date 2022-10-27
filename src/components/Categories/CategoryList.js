@@ -5,14 +5,11 @@ import categories from '../../utils/categories'
 import ProductList from '../ProductList'
 
 const CategoryList = (props) => {
-    const cat = useParams().category
-    const boop = categories.filter(item=>item.path == cat)[0]
-    //console.log(boop)
+    const param = useParams().category
+    const category = categories.filter(item=>item.path === param)[0].category
     const {products} = useStore().store
+    const array = products.filter(item => item.category === category)
 
-
-    const array = products.filter(item => item.category === boop.category)
-    console.log(array)
     
   return (
     <ProductList products={array}/>

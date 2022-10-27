@@ -16,7 +16,6 @@ const Burger = styled.div`
     transition: all 0.3s ease-in-out;
     box-sizing: border-box;
     transform-origin: center;
-  
     background: black;
     width: 25px;
     height: 3px;
